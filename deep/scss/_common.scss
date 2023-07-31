@@ -1,0 +1,53 @@
+.header-block {
+   
+   &__label {
+      font-size: rem(16);
+      line-height: 1.37;
+      color: #6257FE;
+      &:not(:last-child){
+         margin-bottom: rem(7);
+      }
+   }
+
+   &__title {
+      font-family: 'Overpass';
+      font-weight: 700;
+      font-size: rem(56);
+      line-height: 1.26;
+      color: #100C46;
+   }
+
+   &_center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+}
+
+.button {
+   font-family: 'Open Sans';
+   font-weight: 600;
+   font-size: rem(18);
+   line-height: 1.78;
+   color: #100C46;
+   padding: rem(19) rem(46);
+   background-color: #FFFFFF;
+   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+   border-radius: rem(3);
+   transition: all 0.3s ease;
+   &_dark {
+      color: #FFFFFF;
+      background-color: #6257FE;
+   }
+   @media (any-hover:hover) {
+      &:hover{
+         color: #fff;
+         background-color: #100C46;
+      }
+   }
+}
+
+
+
+
