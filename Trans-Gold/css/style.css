@@ -440,16 +440,6 @@ body::after {
   color: #C8A35F;
 }
 
-._watcher-view .info-main__title,
-._watcher-view .info-main__text,
-._watcher-view .social-main__button,
-._watcher-view .social-main__items,
-._watcher-view .item-servises,
-._watcher-view .question__item {
-  -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-          animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
 @-webkit-keyframes slide-fwd-center {
   0% {
     opacity: 0;
@@ -476,6 +466,15 @@ body::after {
     -webkit-transform: scale(1);
             transform: scale(1);
   }
+}
+
+._watcher-view .info-main__title,
+._watcher-view .info-main__text,
+._watcher-view .social-main__button,
+._watcher-view .social-main__items,
+._watcher-view .question__item {
+  -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .header {
@@ -765,34 +764,39 @@ body::after {
   padding: 0.3125rem;
 }
 
-._watcher-view .item-servises:nth-child(1) {
+.item-servises .servises__item._watcher-view {
+  -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.item-servises._watcher-view:nth-child(1) {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
 
-._watcher-view .item-servises:nth-child(2) {
+.item-servises._watcher-view:nth-child(2) {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.item-servises._watcher-view:nth-child(3) {
   -webkit-animation-delay: 0.4s;
           animation-delay: 0.4s;
 }
 
-._watcher-view .item-servises:nth-child(3) {
+.item-servises._watcher-view:nth-child(4) {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.item-servises._watcher-view:nth-child(5) {
   -webkit-animation-delay: 0.6s;
           animation-delay: 0.6s;
 }
 
-._watcher-view .item-servises:nth-child(4) {
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
-}
-
-._watcher-view .item-servises:nth-child(5) {
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-}
-
-._watcher-view .item-servises:nth-child(6) {
-  -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
+.item-servises._watcher-view:nth-child(6) {
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
 }
 
 .item-servises__icon {
@@ -1072,28 +1076,10 @@ body::after {
           animation-delay: 0.9s;
 }
 
-.about-us {
-  background-color: #393F47;
-}
-
-.about-us__sub-title {
-  text-align: center;
-  margin-bottom: 29.99875rem;
-  text-align: left;
-}
-
-.about-us__text {
-  line-height: 1.3333333333;
-}
-
-.about-us__text span {
-  color: #C8A35F;
-}
-
 .about-us__sub-title._watcher-view,
 .about-us__text._watcher-view {
-  -webkit-animation: slide-top 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
-          animation: slide-top 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+  -webkit-animation: slide-top 0.9s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+          animation: slide-top 0.9s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 
 @-webkit-keyframes slide-top {
@@ -1122,6 +1108,24 @@ body::after {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
   }
+}
+
+.about-us {
+  background-color: #393F47;
+}
+
+.about-us__sub-title {
+  text-align: center;
+  margin-bottom: 29.99875rem;
+  text-align: left;
+}
+
+.about-us__text {
+  line-height: 1.3333333333;
+}
+
+.about-us__text span {
+  color: #C8A35F;
 }
 
 .contacts {
@@ -1205,11 +1209,17 @@ body::after {
 }
 
 .social-info__items {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[6];
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(3.75rem, 1fr));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-column-gap: 1.875rem;
      -moz-column-gap: 1.875rem;
           column-gap: 1.875rem;
