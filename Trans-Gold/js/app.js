@@ -781,8 +781,4 @@
     spollers();
     pageNavigation();
     headerScroll();
-    const scrollAction = document.querySelector(".scroll-main");
-    scrollAction.addEventListener("click", (function(event) {
-        scrollAction.classList.toggle("scroll-active");
-    }));
 })();
