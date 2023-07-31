@@ -764,7 +764,7 @@ body::after {
   padding: 0.3125rem;
 }
 
-.item-servises .servises__item._watcher-view {
+.item-servises._watcher-view {
   -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -1078,8 +1078,8 @@ body::after {
 
 .about-us__sub-title._watcher-view,
 .about-us__text._watcher-view {
-  -webkit-animation: slide-top 0.9s cubic-bezier(0.47, 0, 0.745, 0.715) both;
-          animation: slide-top 0.9s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+  -webkit-animation: slide-top 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+          animation: slide-top 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 
 @-webkit-keyframes slide-top {
@@ -1314,13 +1314,7 @@ body::after {
 
 @media (min-width: 37.5em) {
   .categories__items {
-    -webkit-column-gap: 1.875rem;
-       -moz-column-gap: 1.875rem;
-            column-gap: 1.875rem;
-  }
-
-  .categories__items {
-    row-gap: 1.875rem;
+    gap: 1.875rem;
   }
 }
 
@@ -1757,13 +1751,7 @@ body::after {
   }
 
   .categories__items {
-    -webkit-column-gap: 0.9375rem;
-       -moz-column-gap: 0.9375rem;
-            column-gap: 0.9375rem;
-  }
-
-  .categories__items {
-    row-gap: 0.9375rem;
+    gap: 0.9375rem;
   }
 
   .item-categories__title {
@@ -2645,31 +2633,15 @@ body::after {
 }
 
 @media (min-width: 20em) and (max-width: 37.5em) {
-@supports ((-moz-column-gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem )) or (column-gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem ))) {
+@supports (gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem )) {
     .categories__items {
-      -webkit-column-gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem );
-         -moz-column-gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem );
-              column-gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem );
+      gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem );
     }
 }
 
-@supports not ((-moz-column-gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem )) or (column-gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem ))) {
+@supports not (gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem )) {
     .categories__items {
-      -webkit-column-gap: calc(0.9375rem + 0.9375 * (100vw - 20rem) / 17.5);
-         -moz-column-gap: calc(0.9375rem + 0.9375 * (100vw - 20rem) / 17.5);
-              column-gap: calc(0.9375rem + 0.9375 * (100vw - 20rem) / 17.5);
-    }
-}
-
-@supports (row-gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem )) {
-    .categories__items {
-      row-gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem );
-    }
-}
-
-@supports not (row-gap: clamp( 0.9375rem , -0.1339285714rem  +  5.3571428571vw , 1.875rem )) {
-    .categories__items {
-      row-gap: calc(0.9375rem + 0.9375 * (100vw - 20rem) / 17.5);
+      gap: calc(0.9375rem + 0.9375 * (100vw - 20rem) / 17.5);
     }
 }
 }
