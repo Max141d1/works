@@ -472,6 +472,7 @@ body::after {
 ._watcher-view .info-main__text,
 ._watcher-view .social-main__button,
 ._watcher-view .social-main__items,
+._watcher-view .servises__item,
 ._watcher-view .question__item {
   -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -752,6 +753,46 @@ body::after {
   gap: 1.875rem;
 }
 
+._watcher-view .servises__item:nth-child(1) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+._watcher-view .servises__item:nth-child(2) {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+._watcher-view .servises__item:nth-child(3) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+._watcher-view .servises__item:nth-child(4) {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+._watcher-view .servises__item:nth-child(5) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+._watcher-view .servises__item:nth-child(6) {
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+
+._watcher-view .servises__item:nth-child(7) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+._watcher-view .servises__item:nth-child(8) {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+
 .item-servises {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -762,41 +803,6 @@ body::after {
           flex-direction: column;
   text-align: center;
   padding: 0.3125rem;
-}
-
-.item-servises._watcher-view {
-  -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-          animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-.item-servises._watcher-view:nth-child(1) {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
-}
-
-.item-servises._watcher-view:nth-child(2) {
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
-}
-
-.item-servises._watcher-view:nth-child(3) {
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
-}
-
-.item-servises._watcher-view:nth-child(4) {
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-}
-
-.item-servises._watcher-view:nth-child(5) {
-  -webkit-animation-delay: 0.6s;
-          animation-delay: 0.6s;
-}
-
-.item-servises._watcher-view:nth-child(6) {
-  -webkit-animation-delay: 0.7s;
-          animation-delay: 0.7s;
 }
 
 .item-servises__icon {
