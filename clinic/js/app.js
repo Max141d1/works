@@ -3880,6 +3880,32 @@
         initSliders();
     }));
     let addWindowScrollEvent = false;
+    function headerScroll() {
+        addWindowScrollEvent = true;
+        const header = document.querySelector("header.header");
+        const headerShow = header.hasAttribute("data-scroll-show");
+        const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
+        const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
+        let scrollDirection = 0;
+        let timer;
+        document.addEventListener("windowScroll", (function(e) {
+            const scrollTop = window.scrollY;
+            clearTimeout(timer);
+            if (scrollTop >= startPoint) {
+                !header.classList.contains("_header-scroll") ? header.classList.add("_header-scroll") : null;
+                if (headerShow) {
+                    if (scrollTop > scrollDirection) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null; else !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
+                    timer = setTimeout((() => {
+                        !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
+                    }), headerShowTimer);
+                }
+            } else {
+                header.classList.contains("_header-scroll") ? header.classList.remove("_header-scroll") : null;
+                if (headerShow) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null;
+            }
+            scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
+        }));
+    }
     setTimeout((() => {
         if (addWindowScrollEvent) {
             let windowScroll = new Event("windowScroll");
@@ -3972,8 +3998,72 @@
     }
     const da = new DynamicAdapt("max");
     da.init();
+    const beforeAfter = document.querySelector(".before-after");
+    if (beforeAfter) {
+        const beforeAfterArrow = document.querySelector(".before-after__arrow");
+        const afterItem = document.querySelector(".before-after__item--after");
+        beforeAfter.addEventListener("mouseover", (function(e) {
+            const targetElement = e.target;
+            if (!targetElement.classList.contains("before-after__arrow")) if (targetElement.closest(".before-after__item--before")) {
+                beforeAfterArrow.classList.remove("before-after__arrow--right");
+                beforeAfterArrow.classList.add("before-after__arrow--left");
+            } else {
+                beforeAfterArrow.classList.add("before-after__arrow--right");
+                beforeAfterArrow.classList.remove("before-after__arrow--left");
+            }
+        }));
+        beforeAfter.addEventListener("mouseleave", (function() {
+            beforeAfterArrow.classList.remove("before-after__arrow--left");
+            beforeAfterArrow.classList.remove("before-after__arrow--right");
+        }));
+        beforeAfterArrow.addEventListener("mousedown", (function(e) {
+            const beforeAfterSizes = {
+                width: beforeAfter.offsetWidth,
+                left: beforeAfter.getBoundingClientRect().left - scrollX
+            };
+            function beforeAfterArrowMove(e) {
+                const posLeft = e.type === "touchmove" ? e.touches[0].clientX - beforeAfterSizes.left : e.clientX - beforeAfterSizes.left;
+                if (posLeft <= beforeAfterSizes.width && posLeft > 0) {
+                    const way = posLeft / beforeAfterSizes.width * 100;
+                    beforeAfterArrow.style.cssText = `left:calc(${way}% - 4px)`;
+                    afterItem.style.cssText = `width: ${100 - way}%`;
+                } else if (posLeft >= beforeAfterSizes.width) {
+                    beforeAfterArrow.style.cssText = `left: calc(100% - 4px)`;
+                    afterItem.style.cssText = `width: 0%`;
+                } else if (posLeft <= 0) {
+                    beforeAfterArrow.style.cssText = `left: 0%`;
+                    afterItem.style.cssText = `width: 100%`;
+                }
+            }
+            document.addEventListener("touchmove", beforeAfterArrowMove);
+            document.addEventListener("mousemove", beforeAfterArrowMove);
+            document.addEventListener("mouseup", (function(e) {
+                document.removeEventListener("mousemove", beforeAfterArrowMove);
+            }), {
+                once: true
+            });
+            document.addEventListener("dragstart", (function(e) {
+                e.preventDefault();
+            }), {
+                once: true
+            });
+        }));
+    }
+    document.addEventListener("DOMContentLoaded", (function() {
+        const articles = document.querySelectorAll(".item-blog");
+        articles.forEach((article => {
+            const buttonHover = article.querySelector(".item-blog__button");
+            article.addEventListener("mouseover", (function() {
+                buttonHover.classList.add("item-blog__button_hover");
+            }));
+            article.addEventListener("mouseout", (function() {
+                buttonHover.classList.remove("item-blog__button_hover");
+            }));
+        }));
+    }));
     window["FLS"] = true;
     isWebp();
     menuInit();
     spollers();
+    headerScroll();
 })();
